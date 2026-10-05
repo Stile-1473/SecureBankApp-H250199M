@@ -1,0 +1,20 @@
+# Build output
+target/
+*.class
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# SECURITY: never commit the HMAC key or runtime logs
+data/.secret.key
+data/*.tmp
+logs/
