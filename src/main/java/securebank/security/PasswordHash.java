@@ -44,6 +44,9 @@ public class PasswordHash {
         return hash.clone();
     }
 
+    public int iterations() {
+        return iterations;
+    }
     /*
     Serialises this credential for storage in users.txt
      */
