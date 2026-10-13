@@ -17,7 +17,7 @@
     </properties>
 
     <dependencies>
-        <!-- Test-only. The application itself uses nothing but the JDK. -->
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

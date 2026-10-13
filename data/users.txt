@@ -1,0 +1,4 @@
+# securebank users v1
+demo_user|pbkdf2-sha256$600000$0lLowYR8VoGUVfyEBm0LoA==$bR3nd/DXLnzkDdOLVoTmcFbRWee2KauyR0i8pDwwtrI=|2026-10-12T10:27:14.302408863Z|0|-
+ghost1473|pbkdf2-sha256$600000$OE+ykT1S+e4BtLBsL7UmIw==$9LysNxLwEGEppKP4xXzR4eOHtagO/k0JirYBMWq4NGQ=|2026-10-13T20:21:45.849254781Z|0|-
+#hmac=n1AcK83enwEDLZHMzvXeyGYUlPS+QbplT10mQmFlmM8=

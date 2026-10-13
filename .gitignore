@@ -14,7 +14,8 @@ target/
 .DS_Store
 Thumbs.db
 
-# SECURITY: never commit the HMAC key or runtime logs
+# SECURITY: never commit the HMAC key, the lock file, temp files or runtime logs
 data/.secret.key
+data/.lock
 data/*.tmp
 logs/

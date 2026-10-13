@@ -3,11 +3,13 @@ package securebank.security;
 import java.util.Arrays;
 import java.util.Base64;
 
-public class PasswordHash {
+public final class PasswordHash {
 
     private static final String PREFIX = "pbkdf2-sha256";
 
-    private static final int MIN_ITERATIONS = 600_000;
+    // We allow older hashes with fewer iterations to be loaded, so they can be upgraded when the user logs in
+    // New hashes will always use PasswordHasher.DEFAULT_ITERATIONS
+    private static final int MIN_ITERATIONS = 1;
     private static final int MAX_ITERATIONS = 10_000_000;
 
     private static final int SALT_MIN_BYTES = 16;
@@ -58,23 +60,24 @@ public class PasswordHash {
     }
 
     /*
-     * Serialises this credential for storage in users.txtt
+     * Converts the password hash into a string for saving in users.txt
+     * The salt, hash and iteration count are all included
      */
     public String encode() {
         Base64.Encoder b64 = Base64.getEncoder();
 
         return PREFIX
-                + "$$"
+                + "$"
                 + iterations
-                + "$$"
+                + "$"
                 + b64.encodeToString(salt)
-                + "$$"
+                + "$"
                 + b64.encodeToString(hash);
     }
 
     /*
-     * Parses a stored credential
-     * Anything malformed will be rejected
+     * Reads a stored password hash and rebuilds the object
+     * If the format or any of the values are invalid, it rejects the data
      */
     public static PasswordHash decode(String encoded) {
 
